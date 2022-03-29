@@ -10,6 +10,8 @@
 
 以最基本的透明度渐出动画为例：
 
+![](.gitbook/assets/example\_1\_cn.gif)
+
 若 <mark style="color:orange;">**`element`**</mark> 为动画的主体 , 则实际代码为
 
 ```javascript
