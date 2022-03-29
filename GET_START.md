@@ -35,7 +35,7 @@ description: write by @r1ader in 2022/3/28
 以下，将分别解释这三个对象。
 
 * [element -> Thing](GET\_START.md#element-greater-than-thing)
-* [r\_animate -> do](GET\_START.md#undefined)
+* [r\_animate -> do](GET\_START.md#r\_animate-greater-than-do)
 * [act.FADE\_OUT -> something](GET\_START.md#act.fade\_out-greater-than-something)
 
 ## element -> Thing
@@ -260,4 +260,4 @@ export default {
 
 > 关于 贝塞尔曲线，您可以查看 [https://cubic-bezier.com/](https://cubic-bezier.com)
 
-更多配置项，您可以在 [api 文档](https://github.com/r1ader/r\_animate/blob/main/doc/api.md) 中查看。
+更多配置项，您可以在 [api 文档](api-wen-dang.md#pei-zhi-shu-xing) 中查看。

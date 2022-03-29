@@ -1,8 +1,8 @@
 ---
-description: updated by @r1ader in 2022/3/29
+description: (in progress) updated by @r1ader in 2022/3/29
 ---
 
-# API 文档 (in progress)
+# API 文档
 
 ## Do Method
 
@@ -45,7 +45,7 @@ act对象的属性分为两种：**动画属性**，**配置属性**。
 
 ## 动画属性
 
-act对象的属性接受所有的css属性，如width，top，transform等等。
+act对象的动画属性接受所有的<mark style="color:red;">css属性</mark>，如width，top，transform等等。
 
 css属性所对应的值接受两种形式。
 
@@ -65,7 +65,7 @@ css属性所对应的值接受两种形式。
 }
 ```
 
-一言以蔽之，r\_animate 语法只是将css属性值中的<mark style="color:red;">数字</mark>，替换为 `[` **`start` ** `~` **`end` ** `]` 的形式的字符串。
+一言以蔽之，r\_animate 语法只是将css属性值中的<mark style="color:red;">数字</mark>，替换为 `[` **`start` ** `~` **`end` ** `]` 的形式。
 
 > <mark style="color:red;">Notice</mark>: start 和 end 只能是数字，所以 px，em，deg等单位需要接在中括号 `]` 的后面
 
@@ -103,7 +103,7 @@ False表示不循环，True表示循环。
 
 > <mark style="color:red;">Notice：</mark>当loop被设置为2时，除了初始的那次，动画将重复2次，所以总共会执行3次。
 
-loop 还可以被设置为 ‘alternate’ 表示动画的循环顺序会正反交替进行。
+loop 还可以被设置为 <mark style="color:red;">"alternate"</mark> 表示动画的循环顺序会正反交替进行。
 
 次数和alternate可以同时使用：
 
@@ -120,7 +120,7 @@ Type：<mark style="color:blue;">Boolean</mark>
 
 Default：False
 
-动画是否反向。设置为True，等于将 "\[100\~200]px" 变为 "\[200\~100]px"
+动画是否反向。设置为True，等于将 <mark style="color:red;">"\[100\~200]px"</mark> 变为 <mark style="color:red;">"\[200\~100]px"</mark>
 
 
 
@@ -128,11 +128,11 @@ Default：False
 
 Type：<mark style="color:blue;">String</mark>
 
-Default："easeOutExpo"
+Default：<mark style="color:red;">"easeOutExpo"</mark>
 
-补间动画的插值形式，默认 "easeOutExpo" 表示先快后慢。
+补间动画的插值形式，默认 <mark style="color:red;">"easeOutExpo"</mark> 表示先快后慢。
 
-将 ease 设置为 "Linear" 则表示动画匀速进行。
+将 ease 设置为 <mark style="color:red;">"Linear"</mark> 则表示动画匀速进行。
 
 > 关于更多 ease function ，您可以查看 [https://easings.net](https://easings.net)
 
@@ -140,9 +140,9 @@ Default："easeOutExpo"
 
 ```javascript
 { 
-    width: '[100~200]px' ,
+    width: "[100~200]px" ,
     duration: 3000,
-    ease: 'cubic-bezier(.09,.77,.89,.3)'
+    ease: "cubic-bezier(.09,.77,.89,.3)"
 } // 3秒 内，宽度从 100px 增长至 200px，先快后慢再快
 ```
 
