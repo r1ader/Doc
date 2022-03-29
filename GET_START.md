@@ -1,5 +1,4 @@
-# 快速开始 r_animate.js
-
+# 快速开始
 
 ## 简介
 
@@ -7,9 +6,9 @@
 
 `r_animate.js` 中的绝大多数方法，都采用下图这种 `Things`.`do`(`something`) 的形式
 
-<img src="..\image\functionalprogramming.gif" width="300px"/>
+![](.gitbook/assets/functionalprogramming.gif)
 
-以最基本的透明度渐出动画为例： 
+以最基本的透明度渐出动画为例：
 
 若 `element` 为动画的主体 , 则实际代码为
 
@@ -21,13 +20,14 @@
     // 动画代码
     element.r_animate(act.FADE_OUT)
 ```
+
 让我们来着重看最后一行代码，
 
 这里存在三个对象 `element`, `r_animate`, `act.FADE_OUT`， 以下，将分别解释这三个对象。
 
-- [element](#element)
-- [r_animate](#r_animate)
-- [act.FADE_OUT](#actfade_out)
+* [element](GET\_START.md#element)
+* [r\_animate](GET\_START.md#r\_animate)
+* [act.FADE\_OUT](GET\_START.md#actfade\_out)
 
 ## element
 
@@ -35,22 +35,21 @@
 
 DOM `Element` 对象很好理解，即
 
- - 原生的 `doument.getElementById`,
- - vue中的 `this.$refs`
- - ...
- 
- 等方法获取到的对象，
+* 原生的 `doument.getElementById`,
+* vue中的 `this.$refs`
+* ...
+
+等方法获取到的对象，
 
 那么`注册过的`又是什么呢？
 
-### r_register
+#### r\_register
 
 请想象一下，在一个演艺片场中，存在很多人员: `演员`，`导演`，`助理`等等，但能上场演出的，只有`演员`。
 
 所以相应的，一个普通的 `Element` 对象，也需要注册为`Actor`，才能开始动画。
 
 注册代码如下：
-
 
 ```javascript
 import { r_register } from 'r_animate'
@@ -61,7 +60,6 @@ r_register(element)
 ```
 
 或者，在 **`vue`** 中，您可以注册一个导演类，在 **`mounted`** 使用它的 `take` 方法，就可以自动注册 **`$refs`** 中的所有 `Element` 对象了
-
 
 ```javascript
 import { Director } from 'r_animate'
@@ -82,17 +80,16 @@ export default {
 
 关于 `r_animate` 的详情，可以继续查看 👇
 
-
-## r_animate
+## r\_animate
 
 `r_animate` 是我们最常用的方法。
 
-
-对于每个 `Actor` 对象（即注册过的 `Element` 对象），我们都可以调用它的`r_animate` 方法，以使他开始动画 
+对于每个 `Actor` 对象（即注册过的 `Element` 对象），我们都可以调用它的`r_animate` 方法，以使他开始动画
 
 ```javascript
     element.r_animate(something_1)
 ```
+
 上述代码，会使 `actor` 开始 `something_1` 动画
 
 > Notice：关于 `something_1` 的详情，后续在第三部分会详细讲解，当前可以把它直接理解为一个比如放大，缩小的动画。
@@ -117,9 +114,9 @@ export default {
 
 以渐入渐出动画为例，假如我们需要这样一段动画：
 
-小球透明度先变为 0 ，再变回 1 
+小球透明度先变为 0 ，再变回 1
 
-![](../image/example_1_cn.gif)
+![](.gitbook/assets/example\_1\_cn.gif)
 
 那么对应的代码是这样的
 
@@ -127,34 +124,33 @@ export default {
     circle.r_animate(act.FADE_OUT)
         .r_animate(act.FADE_IN);
 ```
+
 > 您可以在 `Playground` 中 [查看并运行全部代码](https://stackblitz.com/edit/vue-ufvvux)
-> 
+>
 > 或者（ 由于网络原因无法访问 Playground ）
 >
-> 也可以在 `Github` 中 [查看全部代码](https://github.com/r1ader/r_animate/blob/main/code/example_1.vue)
+> 也可以在 `Github` 中 [查看全部代码](https://github.com/r1ader/r\_animate/blob/main/code/example\_1.vue)
 
 关于 `r_animate` 方法接受的参数，可以继续查看 👇
 
-## act.FADE_OUT
+## act.FADE\_OUT
 
 `act.FADE_OUT` 是一个 `r_animate` 方法可以接受的参数。
 
 `act` 库中，预定义了许多动画，供开发者们直接调用。
 
-如 
+如
 
-- act.FADE_IN
-- act.FADE_OUT
-- act.BLUR_IN
-- act.BLUR_OUT
-- act.SHAKE
-- ...
+* act.FADE\_IN
+* act.FADE\_OUT
+* act.BLUR\_IN
+* act.BLUR\_OUT
+* act.SHAKE
+* ...
 
 等等
 
 当然，大部分情况需要自定义动画。所以接下来我们以 `act.FADE_OUT` 的真实结构为例，来看看如何自定义动画。
-
-
 
 ```
     console.log(act.FADE_IN)
@@ -168,6 +164,7 @@ export default {
     act_key: act_value 
 }
 ```
+
 这就是一个 act 的基本结构
 
 `act_key` 是需要变化的 css 属性值，如 `opacity`, `width`, `top`等等
@@ -195,7 +192,6 @@ export default {
 // 从 0，0 位移至 100px，100px 的同时，宽度从 100px 增长至 200px
 ```
 
-
 ```javascript
 { 
     transform: 'translate([0~100]px, [0~100]px) scale([1~2])' 
@@ -211,7 +207,6 @@ export default {
 ```
 
 当然，如果您无需考虑初始值，`act_value` 也支持更为简洁的写法:
-
 
 ```javascript
 { width: '200px' } // 宽度从 element当前width值 变化至 200px
@@ -243,8 +238,9 @@ export default {
     ease: 'easeOutExpo'
 } // 3秒 内，宽度从 100px 增长至 200px，先快后慢
 ```
-> 关于 ease function ，您可以查看 <https://easings.net>
- 
+
+> 关于 ease function ，您可以查看 [https://easings.net](https://easings.net)
+
 除此以外 ease 也支持贝塞尔模式
 
 ```javascript
@@ -255,7 +251,6 @@ export default {
 } // 3秒 内，宽度从 100px 增长至 200px，先快后慢再快
 ```
 
-> 关于 贝塞尔曲线，您可以查看 <https://cubic-bezier.com/>
+> 关于 贝塞尔曲线，您可以查看 [https://cubic-bezier.com/](https://cubic-bezier.com)
 
-
-更多配置项，您可以在 [api 文档](https://github.com/r1ader/r_animate/blob/main/doc/api.md) 中查看。
+更多配置项，您可以在 [api 文档](https://github.com/r1ader/r\_animate/blob/main/doc/api.md) 中查看。
