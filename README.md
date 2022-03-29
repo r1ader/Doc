@@ -32,4 +32,4 @@ chrome, firefox 等主流浏览器已原生支持 import
 
 ### [快速开始](GET\_START.md)
 
-### [API 文档](https://github.com/r1ader/r\_animate/blob/main/doc/api\_cn.md#r\_animatejs)
+### [API 文档](api-wen-dang.md)
