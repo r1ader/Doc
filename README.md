@@ -8,6 +8,14 @@ description: write by @r1ader in 2022/3/29
 
 <mark style="color:purple;">**`r_animate.js`**</mark>  帮助您以  函数式编程（Functional programming）  的方式制作动画:smile:
 
+
+
+## 使用 <mark style="color:purple;">`r_animate.js`</mark> ，你可能需要
+
+### [快速开始](GET\_START.md)
+
+### [API 文档](api-wen-dang.md)
+
 ## 安装
 
 ### npm:
@@ -28,8 +36,4 @@ chrome, firefox 等主流浏览器已原生支持 import
 
 如何在原生 <mark style="color:orange;">`html`</mark> <mark style="color:orange;"></mark><mark style="color:orange;"></mark> 与 <mark style="color:orange;">`javascript`</mark> <mark style="color:orange;"></mark><mark style="color:orange;"></mark> 中使用 <mark style="color:purple;">**`r_animate.js`**</mark>？👉 \[[code](https://github.com/r1ader/r\_animate/blob/main/code/test.html)]\[[demo](https://r1ader.github.io/r\_animate/code/test.html)]
 
-## 文档
-
-### [快速开始](GET\_START.md)
-
-### [API 文档](api-wen-dang.md)
+##
