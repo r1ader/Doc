@@ -1,16 +1,12 @@
+---
+description: write by @r1ader in 2022/3/29
+---
+
 # 关于 r\_animate.js
 
-### r\_animate.js 帮助您以 ‘函数式编程’ 的方式制作动画:smile:
+## 什么是 r\_animate.js
 
-[English](https://github.com/r1ader/r\_animate/blob/main/README.md) | 中文
-
-请悉知:
-
-`r_animate.js` 项目正在起步阶段 ，目前暂只支持 <mark style="color:green;">**`vue`**</mark> 和 `浏览器`。
-
-更多的支持正在开发中。
-
-***
+<mark style="color:purple;">**`r_animate.js`**</mark>  帮助您以  函数式编程（Functional programming）  的方式制作动画:smile:
 
 ## 安装
 
@@ -30,7 +26,7 @@ chrome, firefox 等主流浏览器已原生支持 import
 </script>
 ```
 
-如何在原生html与javascript中使用r\_animate.js ？👉 \[[code](https://github.com/r1ader/r\_animate/blob/main/code/test.html)]\[[demo](https://r1ader.github.io/r\_animate/code/test.html)]
+如何在原生 <mark style="color:orange;">`html`</mark> <mark style="color:orange;"></mark><mark style="color:orange;"></mark> 与 <mark style="color:orange;">`javascript`</mark> <mark style="color:orange;"></mark><mark style="color:orange;"></mark> 中使用 <mark style="color:purple;">**`r_animate.js`**</mark>？👉 \[[code](https://github.com/r1ader/r\_animate/blob/main/code/test.html)]\[[demo](https://r1ader.github.io/r\_animate/code/test.html)]
 
 ## 文档
 
