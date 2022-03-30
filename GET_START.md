@@ -97,7 +97,7 @@ export default {
     element.r_animate(something_1)
 ```
 
-上述代码，会使 <mark style="color:orange;">**`actor`**</mark><mark style="color:orange;">** **</mark><mark style="color:orange;">****</mark> 开始 <mark style="color:yellow;">**`something_1`**</mark><mark style="color:yellow;">** **</mark><mark style="color:yellow;">****</mark> 动画
+上述代码，会使 <mark style="color:orange;">**`element`**</mark><mark style="color:orange;">** **</mark><mark style="color:orange;">****</mark> 开始 <mark style="color:yellow;">**`something_1`**</mark><mark style="color:yellow;">** **</mark><mark style="color:yellow;">****</mark> 动画
 
 > Notice：关于 **`something_1` ** 的详情，后续在第三部分会详细讲解，当前可以把它直接理解为一个比如放大，缩小的动画。
 
