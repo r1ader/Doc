@@ -19,26 +19,25 @@ description: write by @r1ader in 2022/3/28
 若 <mark style="color:orange;">**`element`**</mark> 为动画的主体 , 则实际代码为
 
 ```javascript
-    import { r_register, act } from 'r_animate'
+    import { r, act } from 'r_animate'
     const element = document.getElementById('element_id')
-    r_register(element)
-
-    element.r_animate(act.FADE_OUT) // key code
+    
+    r(element).r_animate(act.FADE_OUT) // key code
 ```
 
 让我们来着重看最后一行代码，
 
-这里存在三个对象 <mark style="color:orange;">**`element`**</mark>, <mark style="color:purple;">**`r_animate`**</mark> , <mark style="color:yellow;">**`act.FADE_OUT`**</mark>
+这里存在三个对象 <mark style="color:orange;">**`r(element)`**</mark>, <mark style="color:purple;">**`r_animate`**</mark> , <mark style="color:yellow;">**`act.FADE_OUT`**</mark>
 
 它们分别对应了 <mark style="color:orange;">**`Things`**</mark>，<mark style="color:purple;">**`do`**</mark> 和  <mark style="color:yellow;">**`something`**</mark>
 
 以下，将分别解释这三个对象。
 
-* [element -> Thing](GET\_START.md#element-greater-than-thing)
+* [r(element) -> Thing](GET\_START.md#element-greater-than-thing)
 * [r\_animate -> do](GET\_START.md#r\_animate-greater-than-do)
 * [act.FADE\_OUT -> something](GET\_START.md#act.fade\_out-greater-than-something)
 
-## element -> Thing
+## r(element) -> Thing
 
 在 <mark style="color:purple;">**`r_animate.js`**</mark> 中， 只有 `注册过的` DOM <mark style="color:orange;">**`Element`**</mark><mark style="color:orange;">** **</mark><mark style="color:orange;">****</mark> 对象，才能开始动画。
 
@@ -52,23 +51,13 @@ DOM <mark style="color:orange;">**`Element`**</mark><mark style="color:orange;">
 
 那么`注册过的`又是什么呢？
 
-#### r\_register
+> 请想象一下，在一个演艺片场中，存在很多人员: `演员`，`导演`，`助理`等等，但能上场演出的，只有`演员`。
 
-请想象一下，在一个演艺片场中，存在很多人员: `演员`，`导演`，`助理`等等，但能上场演出的，只有`演员`。
+所以相应的，一个普通的 <mark style="color:orange;">**`Element`**</mark><mark style="color:orange;">** **</mark><mark style="color:orange;">****</mark> 对象，也需要以 <mark style="color:orange;">**`r`**</mark> 包裹，注册为<mark style="color:orange;">**`Actor`**</mark>，才能开始动画。
 
-所以相应的，一个普通的 <mark style="color:orange;">**`Element`**</mark><mark style="color:orange;">** **</mark><mark style="color:orange;">****</mark> 对象，也需要注册为<mark style="color:orange;">**`Actor`**</mark>，才能开始动画。
+或者，在 <mark style="color:green;">**`vue`**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> 中，您可以实例化一个导演类，在 <mark style="color:green;">**`mounted`**</mark> <mark style="color:green;"></mark><mark style="color:green;">钩子函数</mark> 中使用它的 `take` 方法，就可以自动注册 <mark style="color:green;">**`$refs`**</mark> 中的所有 <mark style="color:orange;">**`Element`**</mark><mark style="color:orange;">** **</mark><mark style="color:orange;">****</mark> 对象了。
 
-注册代码如下：
-
-```javascript
-import { r_register } from 'r_animate'
-
-const element = document.getElementById('element_id')
-
-r_register(element)
-```
-
-或者，在 <mark style="color:green;">**`vue`**</mark> <mark style="color:green;"></mark><mark style="color:green;"></mark> 中，您可以实例化一个导演类，在 <mark style="color:green;">**`mounted`**</mark> <mark style="color:green;"></mark><mark style="color:green;">钩子函数</mark> 中使用它的 `take` 方法，就可以自动注册 <mark style="color:green;">**`$refs`**</mark> 中的所有 <mark style="color:orange;">**`Element`**</mark><mark style="color:orange;">** **</mark><mark style="color:orange;">****</mark> 对象了
+> 请想象一下，一个负责任的导演，接管了片场，主动帮所有演员注册了
 
 ```javascript
 import { Director } from 'r_animate'
@@ -77,6 +66,8 @@ export default {
     // ...
     mounted(){
         new Director().take(this)
+        
+        this.$refs.element.r_animate(act.FADE_OUT) // 无需再次注册
     }
 }
 ```
@@ -94,7 +85,7 @@ export default {
 对于每个 <mark style="color:orange;">**`Actor`**</mark><mark style="color:orange;">** **</mark><mark style="color:orange;">****</mark> 对象（即注册过的 <mark style="color:orange;">**`Element`**</mark><mark style="color:orange;">** **</mark><mark style="color:orange;">****</mark> 对象），我们都可以调用它的<mark style="color:purple;">**`r_animate`**</mark> 方法，以使他开始动画
 
 ```javascript
-    element.r_animate(something_1)
+    r(element).r_animate(something_1)
 ```
 
 上述代码，会使 <mark style="color:orange;">**`element`**</mark><mark style="color:orange;">** **</mark><mark style="color:orange;">****</mark> 开始 <mark style="color:yellow;">**`something_1`**</mark><mark style="color:yellow;">** **</mark><mark style="color:yellow;">****</mark> 动画
@@ -104,13 +95,13 @@ export default {
 继续调用，可以使对象在 <mark style="color:yellow;">**`something_1`**</mark><mark style="color:yellow;">** **</mark><mark style="color:yellow;">****</mark> 结束后开始 <mark style="color:yellow;">**`something_2`**</mark><mark style="color:yellow;">** **</mark><mark style="color:yellow;">****</mark> 动画
 
 ```javascript
-    element.r_animate(something_1).r_animate(something_2)
+    r(element).r_animate(something_1).r_animate(something_2)
 ```
 
 如此可以一直持续下去
 
 ```javascript
-    element.r_animate(something_1)
+    r(element).r_animate(something_1)
         .r_animate(something_2)
         .r_animate(something_3)
         .r_animate(something_4)
@@ -128,7 +119,7 @@ export default {
 那么对应的代码是这样的
 
 ```javascript
-    circle.r_animate(act.FADE_OUT)
+    r(circle).r_animate(act.FADE_OUT)
         .r_animate(act.FADE_IN);
 ```
 
