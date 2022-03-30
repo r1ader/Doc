@@ -2,76 +2,48 @@
 description: (in progress) updated by @r1ader in 2022/3/29
 ---
 
-# API 文档
+# API Doc
 
-## 全局方法
+## Do Method
 
-### r()
-
-r接收一个或多个 DOM <mark style="color:orange;">**`element`**</mark> 对象，返回注册后的 <mark style="color:orange;">**`Actor`**</mark> 对象或 <mark style="color:orange;">**`Actor`**</mark> 对象集合
-
-示例：
-
-```javascript
-import { r } from 'r_animate'
-const staff_1 = document.getElementById("Alice")
-const actor_1 = r(staff_1)
-actor_1.r_animate({ opacity: 0 })
-
-// or
-
-const staff_1 = document.getElementById("Alice")
-const staff_2 = document.getElementById("Bob")
-
-r(staff_1, staff_2).r_animate({ opacity: 0 })
-
-// Alice 与 Bob 将会同时隐身
-```
-
-
-
-## Do 方法
-
-**`Do Method`** 为所有<mark style="color:orange;">**`Actor`**</mark>对象可以调用的方法，如 element.r\_animate(act.FADE\_OUT) 中的 <mark style="color:purple;">**`r_animate`**</mark> 就是一个最常用的 **`Do Method`**。
+`Do Method` 为所有`Actor`对象可以调用的方法，如 element.r\_animate(act.FADE\_OUT) 中的 `r_animate` 就是一个最常用的 `Do Method`。
 
 ### .r\_animate()
 
-<mark style="color:purple;">**`r_animate`**</mark>方法会使一个<mark style="color:orange;">**`Actor`**</mark>对象开始动画。
+`r_animate`方法会使一个`Actor`对象开始动画。
 
 示例：
 
 ```java
-r(element).r_animate(act.FADE_OUT)
+element.r_animate(act.FADE_OUT)
 ```
 
 说明：
 
-<mark style="color:purple;">**`.r_animate()`**</mark> 接受一个<mark style="color:yellow;">**`Act`**</mark>对象作为参数。
+.r\_animate() 接受一个Act对象作为参数，亦或是接受一个Act对象的简写字符串作为参数。
 
 ### .r\_then()
 
-<mark style="color:purple;">**`r_then`**</mark> 方法会在动画播放完后执行对应代码
+r\_then方法会在动画播放完后执行对应代码
 
 示例：
 
 ```javascript
-r(element).r_animate(act.FADE_OUT)
+element.r_animate(act.FADE_OUT)
         .r_then(()=>{
                 console.log('Can you see me ?')
         })
 ```
 
-
-
 ## Act 对象
 
-每个<mark style="color:yellow;">**`Act`**</mark>对象都代表了一个动作，
+每个act对象都代表了一个动作，
 
-<mark style="color:yellow;">**`Act`**</mark>对象的属性分为两种：**动画属性**，**配置属性**。
+act对象的属性分为两种：**动画属性**，**配置属性**。
 
 ## 动画属性
 
-<mark style="color:yellow;">**`Act`**</mark>对象的动画属性接受所有的<mark style="color:red;">css属性</mark>，如width，top，transform等等。
+act对象的动画属性接受所有的<mark style="color:red;">css属性</mark>，如width，top，transform等等。
 
 css属性所对应的值接受两种形式。
 
@@ -91,13 +63,13 @@ css属性所对应的值接受两种形式。
 }
 ```
 
-一言以蔽之，<mark style="color:purple;">**`r_animate`**</mark> 语法只是将css属性值中的<mark style="color:red;">数字</mark>，替换为 `[` **`start` ** `~` **`end` ** `]` 的形式。
+一言以蔽之，r\_animate 语法只是将css属性值中的<mark style="color:red;">数字</mark>，替换为 `[` \*\*`start` \*\* `~` \*\*`end` \*\* `]` 的形式。
 
 > <mark style="color:red;">Notice</mark>: start 和 end 只能是数字，所以 px，em，deg等单位需要接在中括号 `]` 的后面
 
 ## 配置属性
 
-<mark style="color:yellow;">**`Act`**</mark>有许多自带的属性以供开发者们自定义动画的属性。
+Act有许多自带的属性以供开发者们自定义动画的属性。
 
 ### duration
 
@@ -125,7 +97,7 @@ Default：False
 
 False表示不循环，True表示循环。
 
-若loop被设置为 <mark style="color:blue;">Number</mark> ，则表示循环的次数。
+若loop被设置为Number，则表示循环的次数。
 
 > <mark style="color:red;">Notice：</mark>当loop被设置为2时，除了初始的那次，动画将重复2次，所以总共会执行3次。
 
@@ -147,8 +119,6 @@ Type：<mark style="color:blue;">Boolean</mark>
 Default：False
 
 动画是否反向。设置为True，等于将 <mark style="color:red;">"\[100\~200]px"</mark> 变为 <mark style="color:red;">"\[200\~100]px"</mark>
-
-
 
 ### ease
 
@@ -182,3 +152,4 @@ Default：null
 
 动画结束时调用的函数。
 
+## 全局方法
