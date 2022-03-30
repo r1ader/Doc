@@ -260,4 +260,4 @@ export default {
 
 > 关于 贝塞尔曲线，您可以查看 [https://cubic-bezier.com/](https://cubic-bezier.com)
 
-更多配置项，您可以在 [api 文档](api-wen-dang.md#pei-zhi-shu-xing) 中查看。
+更多配置项，您可以在 [api 文档](api\_doc.md#pei-zhi-shu-xing) 中查看。
