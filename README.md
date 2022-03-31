@@ -30,7 +30,7 @@ chrome, firefox 等主流浏览器已原生支持 import
 
 ```html
 <script type="module">
-    import { r_register, act } from "https://unpkg.com/r_animate/index.js";
+    import { r, act } from "https://unpkg.com/r_animate/index.js";
 </script>
 ```
 

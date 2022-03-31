@@ -99,7 +99,7 @@ css属性所对应的值接受两种形式。
 
 <mark style="color:yellow;">**`Act`**</mark>有许多自带的属性以供开发者们自定义动画的属性。
 
-### duration
+### <mark style="color:yellow;">duration</mark>
 
 Type：<mark style="color:blue;">Number</mark>
 
@@ -107,7 +107,7 @@ Default：1000
 
 动画的时长，单位为ms。
 
-### delay
+### <mark style="color:yellow;">delay</mark>
 
 Type：<mark style="color:blue;">Number</mark>
 
@@ -115,7 +115,7 @@ Default：0
 
 动画开始前的延迟，单位为ms。
 
-### loop
+### <mark style="color:yellow;">loop</mark>
 
 Type：<mark style="color:blue;">Boolean / Number / String</mark>
 
@@ -140,7 +140,7 @@ loop 还可以被设置为 <mark style="color:red;">"alternate"</mark> 表示动
 }
 ```
 
-### reverse
+### <mark style="color:yellow;">reverse</mark>
 
 Type：<mark style="color:blue;">Boolean</mark>
 
@@ -150,7 +150,7 @@ Default：False
 
 
 
-### ease
+### <mark style="color:yellow;">ease</mark>
 
 Type：<mark style="color:blue;">String</mark>
 
@@ -174,11 +174,13 @@ Default：<mark style="color:red;">"easeOutExpo"</mark>
 
 > 关于 贝塞尔曲线，您可以查看 [https://cubic-bezier.com/](https://cubic-bezier.com)
 
-### callback
+### <mark style="color:yellow;">callback</mark>
 
-Type：<mark style="color:blue;">Function</mark>
+Type：<mark style="color:blue;">Function  /  Array \[ Act ]</mark>
 
 Default：null
 
 动画结束时调用的函数。
+
+当 callback 为一个 Act 对象列表时，callback 内的 Act 会在动画结束后被加入 Actor 的执行队列，这种用法可以用来构造<mark style="color:yellow;">**复合Act**</mark>。
 
