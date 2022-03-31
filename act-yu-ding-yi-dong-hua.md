@@ -23,21 +23,27 @@ act 中的预定义动画被分为若干个库，
 * [IN](act-yu-ding-yi-dong-hua.md#in) -> 使对象<mark style="color:red;">出现</mark>的动画
 * [EMPHASIZE](act-yu-ding-yi-dong-hua.md#emphasize) -> <mark style="color:red;">强调</mark>对象的动画
 
-## OUT
+## act 库
+
+直观地查看 act 库内的预定义动画效果， 请访问 [Act Pre-define Animations](https://r1ader.github.io/Doc/)
+
+## act列表
+
+### OUT
 
 * act.OUT.OPACITY
 * act.OUT.BLUR
 * act.OUT.SCROLL\_DOWN
 * act.OUT.SCROLL\_UP
 
-## IN
+### IN
 
 * act.IN.OPACITY
 * act.IN.BLUR
 * act.IN.SCROLL\_DOWN
 * act.IN.SCROLL\_UP
 
-## EMPHASIZE
+### EMPHASIZE
 
 * act.EMPHASIZE.SHAKE\_X
 * act.EMPHASIZE.SHAKE\_Y
