@@ -22,12 +22,12 @@ description: write by @r1ader in 2022/3/28
     import { r, act } from 'r_animate'
     const element = document.getElementById('element_id')
     
-    r(element).r_animate(act.FADE_OUT) // key code
+    r(element).r_animate(act.OUT.BLUR) // key code
 ```
 
 让我们来着重看最后一行代码，
 
-这里存在三个对象 <mark style="color:orange;">**`r(element)`**</mark>, <mark style="color:purple;">**`r_animate`**</mark> , <mark style="color:yellow;">**`act.FADE_OUT`**</mark>
+这里存在三个对象 <mark style="color:orange;">**`r(element)`**</mark>, <mark style="color:purple;">**`r_animate`**</mark> , <mark style="color:yellow;">**`act.OUT.BLUR`**</mark>
 
 它们分别对应了 <mark style="color:orange;">**`Things`**</mark>，<mark style="color:purple;">**`do`**</mark> 和  <mark style="color:yellow;">**`something`**</mark>
 
@@ -35,7 +35,7 @@ description: write by @r1ader in 2022/3/28
 
 * [r(element) -> Thing](GET\_START.md#element-greater-than-thing)
 * [r\_animate -> do](GET\_START.md#r\_animate-greater-than-do)
-* [act.FADE\_OUT -> something](GET\_START.md#act.fade\_out-greater-than-something)
+* [act.OUT.BLUR -> something](GET\_START.md#act.fade\_out-greater-than-something)
 
 ## r(element) -> Thing
 
@@ -67,7 +67,7 @@ export default {
     mounted(){
         new Director().take(this)
         
-        this.$refs.element.r_animate(act.FADE_OUT) // 无需再次注册
+        this.$refs.element.r_animate(act.OUT.OPACITY) // 无需再次注册
     }
 }
 ```
@@ -119,8 +119,8 @@ export default {
 那么对应的代码是这样的
 
 ```javascript
-    r(circle).r_animate(act.FADE_OUT)
-        .r_animate(act.FADE_IN);
+    r(circle).r_animate(act.OUT.OPACITY)
+        .r_animate(act.IN.OPACITY);
 ```
 
 > 您可以在 **`Playground` ** 中 [查看并运行全部代码](https://stackblitz.com/edit/vue-ufvvux)
@@ -131,27 +131,26 @@ export default {
 
 关于 <mark style="color:purple;">**`r_animate`**</mark><mark style="color:purple;">** **</mark><mark style="color:purple;">****</mark> 方法接受的参数，可以继续查看 👇
 
-## act.FADE\_OUT -> something
+## act.OUT.BLUR -> something
 
-**`act.FADE_OUT`** 是一个 <mark style="color:purple;">**`r_animate`**</mark><mark style="color:purple;">** **</mark><mark style="color:purple;">****</mark> 方法可以接受的参数。
+**`act.OUT.BLUR`** 是一个 <mark style="color:purple;">**`r_animate`**</mark><mark style="color:purple;">** **</mark><mark style="color:purple;">****</mark> 方法可以接受的参数。
 
 **`act` ** 库中，预定义了许多动画，供开发者们直接调用。
 
 如
 
-* act.FADE\_IN
-* act.FADE\_OUT
-* act.BLUR\_IN
-* act.BLUR\_OUT
-* act.SHAKE
+* act.OUT.OPACITY
+* act.OUT.BLUR
+* act.IN.SCROLL\_DOWN
+* act.EMPHASIZE.SHAKE\_X
 * ...
 
-等等
+等等，点击查看更多 [预定义动画](act-yu-ding-yi-dong-hua.md) 以及其使用说明。
 
-当然，大部分情况需要自定义动画。所以接下来我们以 **`act.FADE_OUT`** 的真实结构为例，来看看如何自定义动画。
+当然，大部分情况需要自定义动画。所以接下来我们以 **`act.OUT.OPACITY`** 的真实结构为例，来看看如何自定义动画。
 
 ```
-    console.log(act.FADE_IN)
+    console.log(act.OUT.OPACITY)
     // { opacity: '[1~0]' }
 ```
 

@@ -1,5 +1,5 @@
 ---
-description: (in progress) updated by @r1ader in 2022/3/29
+description: (in progress) updated by @r1ader in 2022/3/31
 ---
 
 # API 文档
@@ -32,7 +32,7 @@ r(staff_1, staff_2).r_animate({ opacity: 0 })
 
 ## Do 方法
 
-**`Do Method`** 为所有<mark style="color:orange;">**`Actor`**</mark>对象可以调用的方法，如 element.r\_animate(act.FADE\_OUT) 中的 <mark style="color:purple;">**`r_animate`**</mark> 就是一个最常用的 **`Do Method`**。
+**`Do Method`** 为所有<mark style="color:orange;">**`Actor`**</mark>对象可以调用的方法，如 element.r\_animate(act.OUT.OPACITY) 中的 <mark style="color:purple;">**`r_animate`**</mark> 就是一个最常用的 **`Do Method`**。
 
 ### .r\_animate()
 
@@ -41,7 +41,7 @@ r(staff_1, staff_2).r_animate({ opacity: 0 })
 示例：
 
 ```java
-r(element).r_animate(act.FADE_OUT)
+r(element).r_animate(act.OUT.OPACITY)
 ```
 
 说明：
@@ -55,7 +55,7 @@ r(element).r_animate(act.FADE_OUT)
 示例：
 
 ```javascript
-r(element).r_animate(act.FADE_OUT)
+r(element).r_animate(act.OUT.OPACITY)
         .r_then(()=>{
                 console.log('Can you see me ?')
         })
