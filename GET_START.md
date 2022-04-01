@@ -123,11 +123,11 @@ export default {
         .r_animate(act.IN.OPACITY);
 ```
 
-> 您可以在 **`Playground` ** 中 [查看并运行全部代码](https://stackblitz.com/edit/vue-ufvvux)
+> 您可以在 **`Playground` ** 中 [<mark style="color:blue;">查看并运行全部代码</mark>](https://stackblitz.com/edit/vue-ufvvux)<mark style="color:blue;"></mark>
 >
 > 或者（ 由于网络原因无法访问 Playground ）
 >
-> 也可以在 **`Github` ** 中 [查看全部代码](https://github.com/r1ader/r\_animate/blob/main/code/example\_1.vue)
+> 也可以在 **`Github` ** 中 [<mark style="color:blue;">查看全部代码</mark>](https://github.com/r1ader/r\_animate/blob/main/code/example\_1.vue)<mark style="color:blue;"></mark>
 
 关于 <mark style="color:purple;">**`r_animate`**</mark><mark style="color:purple;">** **</mark><mark style="color:purple;">****</mark> 方法接受的参数，可以继续查看 👇
 
@@ -145,7 +145,7 @@ export default {
 * act.EMPHASIZE.SHAKE\_X
 * ...
 
-等等，点击查看更多 [预定义动画](act-yu-ding-yi-dong-hua.md) 以及其使用说明。
+等等，点击查看更多 [<mark style="color:blue;">预定义动画</mark>](act-yu-ding-yi-dong-hua.md) 以及其使用说明。
 
 当然，大部分情况需要自定义动画。所以接下来我们以 **`act.OUT.OPACITY`** 的真实结构为例，来看看如何自定义动画。
 
@@ -250,4 +250,4 @@ export default {
 
 > 关于 贝塞尔曲线，您可以查看 [https://cubic-bezier.com/](https://cubic-bezier.com)
 
-更多配置项，您可以在 [api 文档](api-wen-dang.md#pei-zhi-shu-xing) 中查看。
+更多配置项，您可以在 [<mark style="color:blue;">api 文档</mark>](api-wen-dang.md#pei-zhi-shu-xing) <mark style="color:blue;"></mark> 中查看。

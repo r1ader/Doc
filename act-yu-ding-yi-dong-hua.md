@@ -25,7 +25,7 @@ act 中的预定义动画被分为若干个库，
 
 ## act 库
 
-直观地查看 act 库内的预定义动画效果， 请访问 [Act Pre-define Animations](https://r1ader.github.io/Doc/)
+直观地查看 act 库内的预定义动画效果， 请访问 [<mark style="color:blue;">Act Pre-define Animations</mark>](https://r1ader.github.io/Doc/)<mark style="color:blue;"></mark>
 
 ## act列表
 
