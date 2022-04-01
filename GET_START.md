@@ -1,5 +1,5 @@
 ---
-description: write by @r1ader in 2022/3/31
+description: update by @r1ader in 2022/04/01
 ---
 
 # Quick Start
@@ -118,31 +118,30 @@ r(ball).r_animate(act.OUT.OPACITY)
 
 About the parameter accepted by the <mark style="color:purple;">**`r_animate`**</mark> ,  continue to view. 👇
 
-## act.OUT.BLUR -> something
+## act.OUT.OPACITY -> something
 
-**`act.FADE_OUT`** 是一个 <mark style="color:purple;">**`r_animate`**</mark><mark style="color:purple;">\*\* \*\*\*\*\*\*</mark> 方法可以接受的参数。
+<mark style="color:yellow;">**`act.OUT.OPACITY`**</mark> is a parameter accepted by <mark style="color:purple;">**`r_animate`**</mark>&#x20;
 
-\*\*`act` \*\* 库中，预定义了许多动画，供开发者们直接调用。
+In the <mark style="color:yellow;">**`act`**</mark> library, many animations are predefined for developers to call directly.
 
-如
+like
 
-* act.FADE\_IN
-* act.FADE\_OUT
-* act.BLUR\_IN
-* act.BLUR\_OUT
-* act.SHAKE
+* act.OUT.OPACITY
+* act.OUT.BLUR
+* act.IN.SCROLL\_DOWN
+* act.EMPHASIZE.SHAKE\_X
 * ...
 
-等等
+Of course, most cases require custom animations.&#x20;
 
-当然，大部分情况需要自定义动画。所以接下来我们以 **`act.FADE_OUT`** 的真实结构为例，来看看如何自定义动画。
+So let's take the real structure of <mark style="color:yellow;">**`act.OUT.OPACITY`**</mark> as an example to see how to customize the animation.
 
 ```
-    console.log(act.FADE_IN)
+    console.log(act.OUT.OPACITY)
     // { opacity: '[1~0]' }
 ```
 
-是的，定义一个动画实际上就这么简单。
+Yes, it's actually that simple.
 
 ```
 { 
@@ -150,23 +149,27 @@ About the parameter accepted by the <mark style="color:purple;">**`r_animate`**<
 }
 ```
 
-这就是一个 **`act`** 的基本结构
+This is the basic structure of an act.
 
-**`act_key`** 是需要变化的 css 属性值，如 **`opacity`**, **`width`**, \*\*`top`\*\*等等
+<mark style="color:red;">act\_key</mark> is the css property value that needs to be changed, such as **opacity**, **width**, **top**, etc.
 
-**`act_value`** 则是 初始值 \*\*`start` \*\* 和 结束值 \*\*`end` \*\* 以 `[` \*\*`start` \*\* `~` \*\*`end` \*\* `]` 的形式组合成的字符串。
+<mark style="color:red;">act\_value</mark> is a string composed of the initial value <mark style="color:red;">start</mark> and the end value <mark style="color:red;">end</mark> in the form of&#x20;
 
-> Notice: start 和 end 只能是数字，px，em，deg等单位需要接在中括号 `]` 的后面
+> **`[`  **<mark style="color:red;">**`start`**</mark>**  `~`  **<mark style="color:red;">**`end`**</mark>**  `]`**
 
-下面是一些 \*\*`act` \*\* 示例：
+> Notice: <mark style="color:red;">start</mark> and <mark style="color:red;">end</mark> can only be <mark style="color:blue;">numbers</mark>.
+>
+> &#x20;px, em, deg and other units need to be placed after brackets **`]`**
+
+Here are some examples of <mark style="color:yellow;">**`act`**</mark> :
 
 ```javascript
-{ width: '[100~200]px' } // 宽度从 100px 增长至 200px
+{ width: '[100~200]px' } // width grows from 100px to 200px
 ```
 
 ```javascript
 { transform: 'translate([0~100]px, [0~100]px)' }
-// 从 0，0 位移至 100px，100px 
+// from 0，0 move to 100px，100px 
 ```
 
 ```javascript
@@ -174,68 +177,77 @@ About the parameter accepted by the <mark style="color:purple;">**`r_animate`**<
     width: '[100~200]px',
     transform: 'translate([0~100]px, [0~100]px)'
 }
-// 从 0，0 位移至 100px，100px 的同时，宽度从 100px 增长至 200px
+// from 0，0 move to 100px，100px; meanwhile, width grow from 100px to 200px
 ```
 
 ```javascript
 { 
     transform: 'translate([0~100]px, [0~100]px) scale([1~2])' 
 }
-// 从 0，0 位移至 100px，100px 的同时，尺寸增大一倍
+//from 0，0 move to 100px，100px; meanwhile, double the size
 ```
 
 ```javascript
 { 
     transform: 'translate([0~100]px, [0~100]px) scale([1~2]) rotateZ([0~90]deg)' 
 }
-// 从 0，0 位移至 100px，100px 的同时，尺寸增大一倍, 旋转90度
+// from 0，0 move to 100px，100px; 
+// meanwhile, double the size and rotate 90 degrees
 ```
 
-当然，如果您无需考虑初始值，\*\*`act_value` \*\* 也支持更为简洁的写法:
+Of course, if you don't need to consider the initial value, <mark style="color:red;">act\_value</mark> also supports a more concise syntas:
 
 ```javascript
-{ width: '200px' } // 宽度从 element当前width值 变化至 200px
+{ width: '200px' } 
+// The width changes from the element's current width value to 200px
 ```
 
 ```javascript
 { 
     transform: 'translate(100px, 100px)'
-} // element 从 当前位置 位移至 100px，100px
+} // element moves from the current position to 100px, 100px
 ```
 
-除了 \*\*`act_key` \*\* 和 \*\*`act_value` \*\* 外，
+It helps a lot when you are not certain about the start value of the animation.
 
-您可能还需配置动画的时长 **`duration`**
+Beside,
+
+You may also need to configure the <mark style="color:red;">**`duration`**</mark> of the animation
 
 ```javascript
 { 
     width: '[100~200]px' ,
     duration: 3000
-} // 3秒 内，宽度从 100px 增长至 200px
+} 
+// Width grows from 100px to 200px in 3 seconds
 ```
 
-以及 补间动画 的插值形式 **`ease`**
+and the interpolated form of motion tweening <mark style="color:red;">**`ease`**</mark>
 
 ```javascript
 { 
     width: '[100~200]px' ,
     duration: 3000,
     ease: 'easeOutExpo'
-} // 3秒 内，宽度从 100px 增长至 200px，先快后慢
+} 
+// Width grows from 100px to 200px in 3 seconds
+// first fast then slow
 ```
 
-> 关于 ease function ，您可以查看 [https://easings.net](https://easings.net)
+> About ease function ，check [<mark style="color:blue;">https://easings.net</mark>](https://easings.net)<mark style="color:blue;"></mark>
 
-除此以外 **ease** 也支持贝塞尔模式
+<mark style="color:red;">**`ease`**</mark> also supports bezier mode
 
 ```javascript
 { 
     width: '[100~200]px' ,
     duration: 3000,
     ease: 'cubic-bezier(.09,.77,.89,.3)'
-} // 3秒 内，宽度从 100px 增长至 200px，先快后慢再快
+} 
+// Width grows from 100px to 200px in 3 seconds
+// Faster, slower, faster
 ```
 
-> 关于 贝塞尔曲线，您可以查看 [https://cubic-bezier.com/](https://cubic-bezier.com)
+> about cubic-bezier，check [<mark style="color:blue;">https://cubic-bezier.com/</mark>](https://cubic-bezier.com)<mark style="color:blue;"></mark>
 
-更多配置项，您可以在 [api 文档](api\_doc.md#pei-zhi-shu-xing) 中查看。
+For more configuration items, you can check in the [<mark style="color:blue;">Api Doc</mark>](api\_doc.md#pei-zhi-shu-xing)<mark style="color:blue;"></mark>
