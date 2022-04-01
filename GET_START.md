@@ -22,20 +22,20 @@ description: write by @r1ader in 2022/3/28
     import { r, act } from 'r_animate'
     const element = document.getElementById('element_id')
     
-    r(element).r_animate(act.OUT.BLUR) // key code
+    r(element).r_animate(act.OUT.OPACITY) // key code
 ```
 
 让我们来着重看最后一行代码，
 
-这里存在三个对象 <mark style="color:orange;">**`r(element)`**</mark>, <mark style="color:purple;">**`r_animate`**</mark> , <mark style="color:yellow;">**`act.OUT.BLUR`**</mark>
+这里存在三个对象 <mark style="color:orange;">**`r(element)`**</mark>, <mark style="color:purple;">**`r_animate`**</mark> , <mark style="color:yellow;">**`act.OUT.OPACITY`**</mark>
 
 它们分别对应了 <mark style="color:orange;">**`Things`**</mark>，<mark style="color:purple;">**`do`**</mark> 和  <mark style="color:yellow;">**`something`**</mark>
 
 以下，将分别解释这三个对象。
 
-* [r(element) -> Thing](GET\_START.md#element-greater-than-thing)
-* [r\_animate -> do](GET\_START.md#r\_animate-greater-than-do)
-* [act.OUT.BLUR -> something](GET\_START.md#act.fade\_out-greater-than-something)
+* [<mark style="color:blue;">r(element) -> Thing</mark>](GET\_START.md#element-greater-than-thing)<mark style="color:blue;"></mark>
+* <mark style="color:blue;"></mark>[<mark style="color:blue;">r\_animate -> do</mark>](GET\_START.md#r\_animate-greater-than-do)<mark style="color:blue;"></mark>
+* <mark style="color:blue;"></mark>[<mark style="color:blue;">act.OUT.OPACITY -> something</mark>](GET\_START.md#act.out.blur-greater-than-something)<mark style="color:blue;"></mark>
 
 ## r(element) -> Thing
 
@@ -131,9 +131,9 @@ export default {
 
 关于 <mark style="color:purple;">**`r_animate`**</mark><mark style="color:purple;">** **</mark><mark style="color:purple;">****</mark> 方法接受的参数，可以继续查看 👇
 
-## act.OUT.BLUR -> something
+## act.OUT.OPACITY -> something
 
-**`act.OUT.BLUR`** 是一个 <mark style="color:purple;">**`r_animate`**</mark><mark style="color:purple;">** **</mark><mark style="color:purple;">****</mark> 方法可以接受的参数。
+**`act.OUT.OPACITY`** 是一个 <mark style="color:purple;">**`r_animate`**</mark><mark style="color:purple;">** **</mark><mark style="color:purple;">****</mark> 方法可以接受的参数。
 
 **`act` ** 库中，预定义了许多动画，供开发者们直接调用。
 
