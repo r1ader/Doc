@@ -33,9 +33,9 @@ They correspond to <mark style="color:orange;">**`Things`**</mark>，<mark style
 
 In the following, these three subjects will be explained separately
 
-* [r(element) -> Thing](GET\_START.md#r-element-greater-than-thing)
-* [r\_animate -> do](GET\_START.md#r\_animate-greater-than-do)
-* act.OUT.BLUR -> something
+* <mark style="color:blue;"></mark>[<mark style="color:blue;">r(element) -> Thing</mark>](GET\_START.md#r-element-greater-than-thing)<mark style="color:blue;"></mark>
+* <mark style="color:blue;"></mark>[<mark style="color:blue;">r\_animate -> do</mark>](GET\_START.md#r\_animate-greater-than-do)<mark style="color:blue;"></mark>
+* <mark style="color:blue;"></mark>[<mark style="color:blue;">act.OUT.BLUR -> something</mark>](GET\_START.md#r\_animate-greater-than-do)<mark style="color:blue;"></mark>
 
 ## r(element) -> Thing
 
@@ -118,7 +118,7 @@ r(ball).r_animate(act.OUT.OPACITY)
 
 About the parameter accepted by the <mark style="color:purple;">**`r_animate`**</mark> ,  continue to view. 👇
 
-## act.OUT.OPACITY -> something
+## act.OUT.OPACITY -> something <a href="#something" id="something"></a>
 
 <mark style="color:yellow;">**`act.OUT.OPACITY`**</mark> is a parameter accepted by <mark style="color:purple;">**`r_animate`**</mark>&#x20;
 
