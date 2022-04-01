@@ -4,110 +4,92 @@ description: write by @r1ader in 2022/3/31
 
 # Quick Start
 
-## 简介
+## Introduction
 
-<mark style="color:purple;">**`r_animate.js`**</mark> 使得我们可以以函数式编程的方式制作动画。
+<mark style="color:purple;">**`r_animate.js`**</mark> helps us producing animation with functional programming
 
-<mark style="color:purple;">**`r_animate.js`**</mark> 中的绝大多数方法，都采用下图这种 <mark style="color:orange;">**`Things`**</mark>.<mark style="color:purple;">**`do`**</mark>(<mark style="color:yellow;">**`something`**</mark>) 的形式
+Most of methods in <mark style="color:purple;">****</mark><mark style="color:purple;">** **</mark><mark style="color:purple;">**`r_animate.js`**</mark> ，has the form like <mark style="color:orange;">**`Things`**</mark>.<mark style="color:purple;">**`do`**</mark>(<mark style="color:yellow;">**`something`**</mark>)
 
 ![](.gitbook/assets/functionalprogramming.gif)
 
-以最基本的透明度渐出动画为例：
+Take the fade-out animation as an example：
 
 ![](.gitbook/assets/example\_1\_cn.gif)
 
-若 <mark style="color:orange;">**`element`**</mark> 为动画的主体 , 则实际代码为
+if <mark style="color:orange;">**`element`**</mark> is the subject of the animation , then ths code should be
 
 ```javascript
-    import { r_register, act } from 'r_animate'
+    import { r, act } from 'r_animate'
     const element = document.getElementById('element_id')
-    r_register(element)
-
-    element.r_animate(act.FADE_OUT) // key code
+    
+    r(element).r_animate(act.OUT.BLUR) // key code
 ```
 
-让我们来着重看最后一行代码，
+Let's focus on the last line of code，
 
-这里存在三个对象 <mark style="color:orange;">**`element`**</mark>, <mark style="color:purple;">**`r_animate`**</mark> , <mark style="color:yellow;">**`act.FADE_OUT`**</mark>
+There are three subjects <mark style="color:orange;">**`element`**</mark>, <mark style="color:purple;">**`r_animate`**</mark> , <mark style="color:yellow;">**`act.OUT.BLU`**</mark>
 
-它们分别对应了 <mark style="color:orange;">**`Things`**</mark>，<mark style="color:purple;">**`do`**</mark> 和 <mark style="color:yellow;">**`something`**</mark>
+They correspond to <mark style="color:orange;">**`Things`**</mark>，<mark style="color:purple;">**`do`**</mark> 和 <mark style="color:yellow;">**`something`**</mark>
 
-以下，将分别解释这三个对象。
+In the following, these three subjects will be explained separately
 
-* [element -> Thing](GET\_START.md#element-greater-than-thing)
+* [r(element) -> Thing](GET\_START.md#r-element-greater-than-thing)
 * [r\_animate -> do](GET\_START.md#r\_animate-greater-than-do)
-* [act.FADE\_OUT -> something](GET\_START.md#act.fade\_out-greater-than-something)
+* act.OUT.BLUR -> something
 
-## element -> Thing
+## r(element) -> Thing
 
-在 <mark style="color:purple;">**`r_animate.js`**</mark> 中， 只有 `注册过的` DOM <mark style="color:orange;">**`Element`**</mark><mark style="color:orange;">\*\* \*\*\*\*\*\*</mark> 对象，才能开始动画。
+For <mark style="color:purple;">**`r_animate.js`**</mark> ， only the <mark style="color:red;">registered</mark> DOM <mark style="color:orange;">**`Element`**</mark> Object, can make animation。
 
-DOM <mark style="color:orange;">**`Element`**</mark><mark style="color:orange;">\*\* \*\*\*\*\*\*</mark> 对象很好理解，即
+DOM <mark style="color:orange;">**`Element`**</mark> <mark style="color:orange;"></mark><mark style="color:orange;"></mark> is the Objects we get from
 
-* 原生的 `doument.getElementById`,
-* vue中的 `this.$refs`
+* &#x20;`doument.getElementById` in browser
+* &#x20;`this.$refs` in vue
 * ...
 
-等方法获取到的对象，
+But what is <mark style="color:red;">registered</mark> ?
 
-那么`注册过的`又是什么呢？
+> Please imagine that on a movie set, there are many people: <mark style="color:orange;">actors</mark>, <mark style="color:orange;">directors</mark>, <mark style="color:orange;">assistants</mark>, etc., but only the <mark style="color:orange;">actors</mark> can perform.
 
-#### r\_register
+So correspondingly, an ordinary <mark style="color:orange;">**`Element`**</mark> object also needs to be registered as an <mark style="color:orange;">**`Actor`**</mark>  object to start the animation.
 
-请想象一下，在一个演艺片场中，存在很多人员: `演员`，`导演`，`助理`等等，但能上场演出的，只有`演员`。
-
-所以相应的，一个普通的 <mark style="color:orange;">**`Element`**</mark><mark style="color:orange;">\*\*</mark> <mark style="color:orange;"></mark><mark style="color:orange;">**\*\*\*\***</mark>** 对象，也需要注册为**`Actor`\*\*，才能开始动画。
-
-注册代码如下：
+To register an <mark style="color:orange;">**`Element`**</mark> , we us <mark style="color:purple;">**`r`**</mark> to wrap it:
 
 ```javascript
-import { r_register } from 'r_animate'
+import { r } from 'r_animate'
 
 const element = document.getElementById('element_id')
 
-r_register(element)
+r(element)
+    // then doing something
+    .r_animate(...)
 ```
 
-或者，在 <mark style="color:green;">**`vue`**</mark> 中，您可以实例化一个导演类，在 <mark style="color:green;">**`mounted`**</mark> <mark style="color:green;">钩子函数</mark> 中使用它的 `take` 方法，就可以自动注册 <mark style="color:green;">**`$refs`**</mark> 中的所有 <mark style="color:orange;">**`Element`**</mark><mark style="color:orange;">\*\* \*\*\*\*\*\*</mark> 对象了
+After register, you can call the <mark style="color:purple;">**`.r_animate(...)`**</mark> to start the animation.
 
-```javascript
-import { Director } from 'r_animate'
-
-export default {
-    // ...
-    mounted(){
-        new Director().take(this)
-    }
-}
-```
-
-在注册之后，您就可以调用 <mark style="color:orange;">**`Element`**</mark><mark style="color:orange;">\*\*</mark> <mark style="color:orange;"></mark><mark style="color:orange;">**\*\*\*\***</mark>** 对象的** `r_animate`\*\* 方法开始动画。
-
-> Notice：\*\*`Element` \*\*<mark style="color:orange;">\*\*\*\*</mark> 对象被注册过后，便成为了拥有 **`r_animate`** 的 \*\*`Actor` \*\* 对象，但您仍然可以调用它原来作为 \*\*`Element` \*\* 对象的所有属性与方法
-
-关于 <mark style="color:purple;">**`r_animate`**</mark> 的详情，可以继续查看 👇
+About <mark style="color:purple;">**`r_animate`**</mark> ，continue to view 👇
 
 ## r\_animate -> do
 
-<mark style="color:purple;">**`r_animate`**</mark> 是我们最常用的方法。
-
-对于每个 <mark style="color:orange;">**`Actor`**</mark><mark style="color:orange;">\*\*</mark> <mark style="color:orange;"></mark><mark style="color:orange;">**\*\*\*\***</mark>** 对象（即注册过的** `Element` <mark style="color:orange;">**\*\*\*\***</mark>** 对象），我们都可以调用它的**`r_animate`\*\* 方法，以使他开始动画
+<mark style="color:purple;">**`r_animate`**</mark> is our most common method。
 
 ```javascript
-    element.r_animate(something_1)
+    element.r_animate(something)
 ```
 
-上述代码，会使 <mark style="color:orange;">**`element`**</mark><mark style="color:orange;">\*\*</mark> <mark style="color:orange;"></mark><mark style="color:orange;">**\*\*\*\***</mark>** 开始** `something_1` \*\*<mark style="color:yellow;">\*\*\*\*</mark> 动画
+The above code will make <mark style="color:orange;">**`element`**</mark> perform <mark style="color:yellow;">**`something`**</mark> animation
 
-> Notice：关于 \*\*`something_1` \*\* 的详情，后续在第三部分会详细讲解，当前可以把它直接理解为一个比如放大，缩小的动画。
+> Notice：The details of <mark style="color:yellow;">**`something`**</mark> will be explained in detail in the third part. Currently, it can be directly understood as an animation such as zooming in and zooming out.
 
-继续调用，可以使对象在 <mark style="color:yellow;">**`something_1`**</mark><mark style="color:yellow;">\*\*</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">**\*\*\*\***</mark>** 结束后开始** `something_2` \*\*<mark style="color:yellow;">\*\*\*\*</mark> 动画
+With functional programming, we can call <mark style="color:purple;">**`r_animate`**</mark> for several times like this:
 
 ```javascript
     element.r_animate(something_1).r_animate(something_2)
 ```
 
-如此可以一直持续下去
+The above code will make <mark style="color:orange;">**`element`**</mark> perform <mark style="color:yellow;">**`something_2`**</mark> animation after <mark style="color:yellow;">**`something_1`**</mark> is finished.
+
+So it can go on and go on.
 
 ```javascript
     element.r_animate(something_1)
@@ -119,28 +101,24 @@ export default {
         // ...
 ```
 
-以渐入渐出动画为例，假如我们需要这样一段动画：
+Take the fade-in and fade-out animation as an example, if we need such an animation：
 
-小球透明度先变为 0 ，再变回 1
+The opacity of the ball first changes to 0 and then back to 1
 
 ![](.gitbook/assets/example\_1\_cn.gif)
 
-那么对应的代码是这样的
+Then the code is like this
 
 ```javascript
-    circle.r_animate(act.FADE_OUT)
-        .r_animate(act.FADE_IN);
+r(ball).r_animate(act.OUT.OPACITY)
+        .r_animate(act.IN.OPACITY);
 ```
 
-> 您可以在 \*\*`Playground` \*\* 中 [查看并运行全部代码](https://stackblitz.com/edit/vue-ufvvux)
->
-> 或者（ 由于网络原因无法访问 Playground ）
->
-> 也可以在 \*\*`Github` \*\* 中 [查看全部代码](https://github.com/r1ader/r\_animate/blob/main/code/example\_1.vue)
+> check and run the code in <mark style="color:blue;">stackblitz</mark>
 
-关于 <mark style="color:purple;">**`r_animate`**</mark><mark style="color:purple;">\*\* \*\*\*\*\*\*</mark> 方法接受的参数，可以继续查看 👇
+About the parameter accepted by the <mark style="color:purple;">**`r_animate`**</mark> ,  continue to view. 👇
 
-## act.FADE\_OUT -> something
+## act.OUT.BLUR -> something
 
 **`act.FADE_OUT`** 是一个 <mark style="color:purple;">**`r_animate`**</mark><mark style="color:purple;">\*\* \*\*\*\*\*\*</mark> 方法可以接受的参数。
 
