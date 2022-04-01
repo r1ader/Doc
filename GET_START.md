@@ -132,6 +132,8 @@ like
 * act.EMPHASIZE.SHAKE\_X
 * ...
 
+Click to see more [<mark style="color:blue;">predefined animations</mark>](https://r1ader.github.io/Doc/)<mark style="color:blue;"></mark>
+
 Of course, most cases require custom animations.&#x20;
 
 So let's take the real structure of <mark style="color:yellow;">**`act.OUT.OPACITY`**</mark> as an example to see how to customize the animation.
